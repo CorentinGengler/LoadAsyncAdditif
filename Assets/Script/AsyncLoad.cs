@@ -15,10 +15,13 @@ public class AsyncLoad  : MonoBehaviour
     #region Public Void
     public void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(LoadYourAsyncScene());
-        if(m_SceneToUnload.Length>1)
+        if(other.tag=="Player")
         {
-            StartCoroutine(UnLoadYourAsyncScene());
+            StartCoroutine(LoadYourAsyncScene());
+            if (m_SceneToUnload.Length > 1)
+            {
+                StartCoroutine(UnLoadYourAsyncScene());
+            }
         }
     }
 
